@@ -1,5 +1,5 @@
 import logo from './logo.svg';
-import '.App/App.css';
+import './App.css';
 import Footer from './components/Footer'
 
 function App() {
