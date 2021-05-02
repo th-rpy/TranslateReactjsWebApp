@@ -57,7 +57,6 @@ const useStyles = makeStyles(() => ({
   drawerContainer: {
     padding: "15px 20px",
   },
-
 }));
 
 export default function Header() {
@@ -169,7 +168,7 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar className={header} >
+      <AppBar className={header}>
         {mobileView ? displayMobile() : displayDesktop()}
       </AppBar>
     </header>
