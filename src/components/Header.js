@@ -9,6 +9,7 @@ import {
   Link,
   MenuItem,
 } from "@material-ui/core";
+
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink, Router } from "react-router-dom";
@@ -54,10 +55,7 @@ const useStyles = makeStyles(() => ({
     justifyContent: "space-between",
   },
   drawerContainer: {
-    padding: "20px 30px",
-  },
-  root: {
-    flexGrow: 1
+    padding: "15px 20px",
   },
 
 }));
@@ -147,7 +145,7 @@ export default function Header() {
   };
 
   const translateWebAppLogo = (
-    <Typography variant="h6" component="h1" className={logo}>
+    <Typography variant="h6" component="h2" className={logo}>
       Translate Web App
     </Typography>
   );
@@ -171,7 +169,7 @@ export default function Header() {
 
   return (
     <header>
-      <AppBar className={header}>
+      <AppBar className={header} >
         {mobileView ? displayMobile() : displayDesktop()}
       </AppBar>
     </header>

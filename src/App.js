@@ -2,12 +2,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import Translate from "./components/Translate";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <h1>deeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h1>
+      <Translate></Translate>
       <Footer />
     </div>
   );
