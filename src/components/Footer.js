@@ -1,7 +1,7 @@
 import React from "react";
 import { AppBar, Container, Toolbar, Typography } from "@material-ui/core";
 
-export const Footer = (props) => {
+const Footer = (props) => {
   return (
     <footer>
       <AppBar position="static" color="primary">

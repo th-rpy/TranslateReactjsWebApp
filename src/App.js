@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <Header />
       <h1>deeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee</h1>
-      <h1>ddddddddddecededededee</h1>
       <Footer />
     </div>
   );
