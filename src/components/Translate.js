@@ -51,7 +51,26 @@ const Translate = () => {
           Welcome! To get started, paste your text into the search box
         </Text>
       </Box>
-
+      <Box className="i" my="12" align="center">
+        <form  autoComplete="on">
+          <InputGroup maxW="70vw">
+		  	<Select placeholder="Select option" maxW = "15vw">
+				<option value="option1">Twitter</option>
+				<option value="option2">Facebook</option>
+				<option value="option2">Instagram</option>
+			</Select>
+            <Input
+              name="tweetURL"
+              placeholder="https://twitter.com/fbOpenSource/status/1369334666843488256"
+            />
+            <InputRightElement>
+              <button type="submit">
+                <Search2Icon fontSize={font_size} color="blue.700" />
+              </button>
+            </InputRightElement>
+          </InputGroup>
+        </form>
+      </Box>
 
     </div>
   );
