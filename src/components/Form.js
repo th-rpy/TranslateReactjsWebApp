@@ -68,33 +68,57 @@ export default class Forms extends React.Component {
 
     return (
       <div>
-        <h4 className="mb-2" style={{ color: "green" }}>
+        <h3 className="mb-2" style={{ color: "green" }}>
           {value && valueTr
             ? "From : " +
               (value && `🗣 ${value}`) +
               " To : " +
               (valueTr && `🗣 ${valueTr}`)
             : "🤔 Waiting for you to say something..."}
-        </h4>
-        <div>
-          <textarea
+        </h3>
+        <br />
+        <div style={{ height: "50rem", width: "100%", margin: "auto" }}>
+          <div
             style={{
-              overflow: "hidden",
-              fontSize: "18px",
-              borderRadius: "10px",
+              height: "30rem",
+              width: "20%",
+              marginLeft: "1%",
+              marginRight: "0%",
+              float: "left",
             }}
-            id="edd-reviews-review"
-            name="edd-reviews-review"
-            rows="9"
-            cols="70"
-            aria-required="true"
-            required="required"
-            value={textOrg}
-            onChange={this.handleTextTranslateChange}
-            placeholder="Type To Translate ..."
-          ></textarea>
-          <br />
-          <div>
+          >
+            <textarea
+              style={{
+                overflow: "hidden",
+                fontSize: "18px",
+                borderRadius: "10px",
+              }}
+              id="edd-reviews-review"
+              name="edd-reviews-review"
+              rows="15"
+              cols="60"
+              aria-required="true"
+              required="required"
+              value={textOrg}
+              onChange={this.handleTextTranslateChange}
+              placeholder="Type To Translate ..."
+            ></textarea>{" "}
+          </div>
+
+          <div
+            style={{
+              width: "50x",
+              height: "100px",
+
+              position: "absolute",
+              top: "0",
+              bottom: "0",
+              left: "0",
+              right: "0",
+
+              margin: "auto",
+            }}
+          >
             <div class="select is-primary is-small">
               <select class="select" onChange={this.handleChange}>
                 <option value="Select Language">Translate from...</option>
@@ -103,7 +127,7 @@ export default class Forms extends React.Component {
                 <option value="Arabic">Arabic</option>
               </select>
             </div>
-            <span>{"👈__👀__👉"}</span>
+            <strong>{"👈__👀__👉"}</strong>
             <div class="select is-primary is-small">
               <select onChange={this.handleChange2} class="select">
                 <option value="Select Language">Translate into...</option>
@@ -113,46 +137,79 @@ export default class Forms extends React.Component {
               </select>
             </div>
           </div>
-          <div>
+          <div style={{
+              width: "50x",
+              height: "25px",
+
+              position: "absolute",
+              top: "0",
+              bottom: "0",
+              left: "0",
+              right: "0",
+
+              margin: "auto",
+            }}>
             <button
               class="button is-primary is-outlined"
               onClick={this.handleClick}
             >
               Translate
             </button>
-            <br />
           </div>
-          <br />
-          {clicked ? (
-            <textarea
-              style={{
-                overflow: "hidden",
-                fontSize: "18px",
-                borderRadius: "10px",
-              }}
-              id="edd-reviews-review"
-              name="edd-reviews-review"
-              cols="70"
-              rows="9"
-              aria-required="true"
-              required="required"
-              value={translatedText}
-              placeholder="Here, Your translated Text..."
-            ></textarea>
-          ) : (
-            <div>
-              <br />
-              <br />
 
-              
-                <button class="delete"> </button>
-                <span class="icon has-text-info">
-                  <i class="fas fa-info-circle"></i>
-                </span>
-                <span>Here You Gotta You Translated Text ...</span>
+          {clicked ? (
+            <div
+              style={{
+                height: "50rem",
+                width: "20%",
+                marginLeft: "0%",
+                marginRight: "14%",
+                float: "right",
+              }}
+            >
+              <textarea
+                style={{
+                  overflow: "hidden",
+                  fontSize: "18px",
+                  borderRadius: "10px",
+                }}
+                id="edd-reviews-review"
+                name="edd-reviews-review"
+                cols="60"
+                rows="15"
+                aria-required="true"
+                required="required"
+                value={translatedText}
+                placeholder="Here, Your translated Text..."
+              ></textarea>{" "}
+              <br />{" "}
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText(this.state.translatedText);
+                }}
+                class="button is-light"
+              >
+                Copy
+              </button>
+            </div>
+          ) : (
+            <div style={{
+              height: "50rem",
+              width: "20%",
+              marginLeft: "0%",
+              marginRight: "14%",
+              float: "right",
+            }}>
+            
+            <br />
+              <br />  <br />
               <br />
-              <br />
-              <br />
+              <button class="delete"> </button>
+              <span class="icon has-text-info">
+                <i class="fas fa-info-circle"></i>
+              </span>
+              <strong>Here You Gotta Your Translated Text ...</strong>
+
             </div>
           )}
         </div>
