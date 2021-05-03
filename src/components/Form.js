@@ -43,7 +43,9 @@ export default class Forms extends React.Component {
   }
 
   handleClick() {
-    this.setState({ translatedText: this.state.textOrg, clicked: true });
+    this.state.value === this.state.valueTr
+      ? this.setState({ translatedText: this.state.textOrg, clicked: true })
+      : this.setState({ translatedText: "Bonjour mes amis !", clicked: true });
     fetch(
       "https://website-translation1.p.rapidapi.com/translateLanguage/translate?type=plain&text=Marketing%20is%20the%20study%20and%20management%20of%20exchange%20relationships.%20It%20is%20the%20business%20process%20of%20identifying%2C%20anticipating%2C%20and%20satisfying%20customers'%20needs%20and%20wants.%20Because%20marketing%20is%20used%20to%20attract%20customers%2C%20it%20is%20one%20of%20the%20primary%20components%20of%20business%20management%20and%20commerce.&target=fr",
       {
@@ -82,7 +84,7 @@ export default class Forms extends React.Component {
             style={{
               height: "30rem",
               width: "20%",
-              marginLeft: "1%",
+              marginLeft: "5%",
               marginRight: "0%",
               float: "left",
             }}
@@ -165,7 +167,7 @@ export default class Forms extends React.Component {
                 height: "50rem",
                 width: "20%",
                 marginLeft: "0%",
-                marginRight: "14%",
+                marginRight: "18%",
                 float: "right",
               }}
             >
