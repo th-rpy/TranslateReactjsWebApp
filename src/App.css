@@ -40,3 +40,14 @@ hr {
     transform: rotate(360deg);
   }
 }
+.header {
+  text-align: center;
+}
+
+.custom-btn-toolbar {
+  display: inline !important;
+}
+
+.custom-btn-toolbar > .btn {
+  margin-right: 1rem;
+}

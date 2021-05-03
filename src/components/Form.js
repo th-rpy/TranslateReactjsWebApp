@@ -43,7 +43,7 @@ export default class Forms extends React.Component {
   }
 
   handleClick() {
-    this.setState({ translatedText: this.state.textOrg , clicked: true});
+    this.setState({ translatedText: this.state.textOrg, clicked: true });
     fetch(
       "https://website-translation1.p.rapidapi.com/translateLanguage/translate?type=plain&text=Marketing%20is%20the%20study%20and%20management%20of%20exchange%20relationships.%20It%20is%20the%20business%20process%20of%20identifying%2C%20anticipating%2C%20and%20satisfying%20customers'%20needs%20and%20wants.%20Because%20marketing%20is%20used%20to%20attract%20customers%2C%20it%20is%20one%20of%20the%20primary%20components%20of%20business%20management%20and%20commerce.&target=fr",
       {
@@ -122,26 +122,39 @@ export default class Forms extends React.Component {
             </button>
             <br />
           </div>
-          <br/>
-          {clicked ? <textarea
-            style={{
-              overflow: "hidden",
-              fontSize: "18px",
-              borderRadius: "10px",
-            }}
-            id="edd-reviews-review"
-            name="edd-reviews-review"
-            cols="70"
-            rows="9"
-            aria-required="true"
-            required="required"
-            value={translatedText}
-            placeholder="Here, Your translated Text..."
-          ></textarea>: <div>
-            <br/><br/><br/>
-             <h2> Here You Gotta You Translated Text ...</h2>
-             <br/><br/><br/>
-            </div>}
+          <br />
+          {clicked ? (
+            <textarea
+              style={{
+                overflow: "hidden",
+                fontSize: "18px",
+                borderRadius: "10px",
+              }}
+              id="edd-reviews-review"
+              name="edd-reviews-review"
+              cols="70"
+              rows="9"
+              aria-required="true"
+              required="required"
+              value={translatedText}
+              placeholder="Here, Your translated Text..."
+            ></textarea>
+          ) : (
+            <div>
+              <br />
+              <br />
+
+              
+                <button class="delete"> </button>
+                <span class="icon has-text-info">
+                  <i class="fas fa-info-circle"></i>
+                </span>
+                <span>Here You Gotta You Translated Text ...</span>
+              <br />
+              <br />
+              <br />
+            </div>
+          )}
         </div>
       </div>
     );
