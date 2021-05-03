@@ -17,28 +17,30 @@ const Type = () => {
   return (
     <div>
       <Box pt="100" px="100">
-        <div><Text
-          className="i"
-          size="lg"
-          fontSize="40px"
-          p="4"
-          color="gray.100"
-          textAlign="center"
-          as="i"
-          isTruncated
-        >
-          Paste your Text and Get your Translated Text in{" "}
-          <span style={{ color: "red" }}>
-            <Typewriter
-              loop
-              cursor
-              typespeed={50}
-              deleteSpeed={50}
-              delaySpeed={1000}
-              words={["English", "French", "Arabic", "Other!"]}
-            />
-          </span>
-        </Text></div> 
+        <div>
+          <Text
+            className="i"
+            size="lg"
+            fontSize="40px"
+            p="4"
+            color="gray.100"
+            textAlign="center"
+            as="i"
+            isTruncated
+          >
+            Paste your Text and Get your Translated Text in{" "}
+            <span style={{ color: "red" }}>
+              <Typewriter
+                loop
+                cursor
+                typespeed={50}
+                deleteSpeed={50}
+                delaySpeed={1000}
+                words={["English", "French", "Arabic", "Other!"]}
+              />
+            </span>
+          </Text>
+        </div>
         <Text
           className="i"
           size="md"
