@@ -13,6 +13,7 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import React, { useState, useEffect } from "react";
 import { Link as RouterLink, Router } from "react-router-dom";
+import Type from "./Type";
 
 const headersData = [
   {
@@ -171,6 +172,8 @@ export default function Header() {
       <AppBar className={header}>
         {mobileView ? displayMobile() : displayDesktop()}
       </AppBar>
+
+      <Type></Type>
     </header>
   );
 }

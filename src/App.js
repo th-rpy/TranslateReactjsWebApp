@@ -2,13 +2,13 @@ import logo from "./logo.svg";
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Translate from "./components/Translate";
+import Forms from "./components/Form";
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Translate></Translate>
+      <Forms></Forms>
       <Footer />
     </div>
   );
