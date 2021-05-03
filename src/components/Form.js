@@ -65,10 +65,10 @@ export default class Forms extends React.Component {
 
   render() {
     const { value, valueTr, textOrg, translatedText, clicked } = this.state;
-
+    const color_ = value && valueTr ? "green" : "red";
     return (
       <div>
-        <h3 className="mb-2" style={{ color: "green" }}>
+        <h3 className="mb-2" style={{ color: color_ }}>
           {value && valueTr
             ? "From : " +
               (value && `🗣 ${value}`) +
@@ -137,7 +137,8 @@ export default class Forms extends React.Component {
               </select>
             </div>
           </div>
-          <div style={{
+          <div
+            style={{
               width: "50x",
               height: "25px",
 
@@ -148,7 +149,8 @@ export default class Forms extends React.Component {
               right: "0",
 
               margin: "auto",
-            }}>
+            }}
+          >
             <button
               class="button is-primary is-outlined"
               onClick={this.handleClick}
@@ -193,23 +195,23 @@ export default class Forms extends React.Component {
               </button>
             </div>
           ) : (
-            <div style={{
-              height: "50rem",
-              width: "20%",
-              marginLeft: "0%",
-              marginRight: "14%",
-              float: "right",
-            }}>
-            
-            <br />
-              <br />  <br />
+            <div
+              style={{
+                height: "50rem",
+                width: "20%",
+                marginLeft: "0%",
+                marginRight: "14%",
+                float: "right",
+              }}
+            >
+              <br />
+              <br /> <br />
               <br />
               <button class="delete"> </button>
               <span class="icon has-text-info">
                 <i class="fas fa-info-circle"></i>
               </span>
               <strong>Here You Gotta Your Translated Text ...</strong>
-
             </div>
           )}
         </div>
