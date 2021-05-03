@@ -17,7 +17,7 @@ const Type = () => {
   return (
     <div>
       <Box pt="100" px="100">
-        <Text
+        <div><Text
           className="i"
           size="lg"
           fontSize="40px"
@@ -38,7 +38,7 @@ const Type = () => {
               words={["English", "French", "Arabic", "Other!"]}
             />
           </span>
-        </Text>
+        </Text></div> 
         <Text
           className="i"
           size="md"
