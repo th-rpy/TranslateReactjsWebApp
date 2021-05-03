@@ -1,18 +1,14 @@
 import {
   Text,
-  Input,
   Box,
-  Select,
-  InputGroup,
-  InputRightElement,
-  Textarea,
+
 } from "@chakra-ui/react";
-import { SearchIcon, Search2Icon } from "@chakra-ui/icons";
+/*import { SearchIcon, Search2Icon } from "@chakra-ui/icons";*/
 import Typewriter from "./TypeWriter";
 
 const Type = () => {
-  const title_size = { base: "33px", md: "50px", lg: "55px" };
-  const font_size = { base: "16px", md: "18px", lg: "20px" };
+  /*const title_size = { base: "33px", md: "50px", lg: "55px" };
+  const font_size = { base: "16px", md: "18px", lg: "20px" };*/
 
   return (
     <div>

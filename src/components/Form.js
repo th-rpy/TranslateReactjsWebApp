@@ -1,4 +1,4 @@
-import {
+/*import {
   Text,
   Input,
   Box,
@@ -9,12 +9,12 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon, Search2Icon } from "@chakra-ui/icons";
 import Typewriter from "./TypeWriter";
-import TextareaAutosize from "react-textarea-autosize";
+import TextareaAutosize from "react-textarea-autosize";*/
 
 import React from "react";
-import { FormTextarea } from "shards-react";
+/*import { FormTextarea } from "shards-react";
 import { FormSelect } from "shards-react";
-import { Button } from "shards-react";
+import { Button } from "shards-react";*/
 import "bulma/css/bulma.css";
 
 export default class Forms extends React.Component {
@@ -43,6 +43,8 @@ export default class Forms extends React.Component {
   }
 
   handleClick() {
+    // eslint-disable-next-line no-unused-expressions
+    this.state.value === null || this.state.valueTr === null ? alert('juju') : null;
     this.state.value === this.state.valueTr
       ? this.setState({ translatedText: this.state.textOrg, clicked: true })
       : this.setState({ translatedText: "Bonjour mes amis !", clicked: true });

@@ -1,9 +1,9 @@
-import logo from "./logo.svg";
+/*import logo from "./logo.svg";*/
 import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Forms from "./components/Form";
-import Type from "./components/Type";
+/*import Type from "./components/Type";*/
 
 function App() {
   return (
