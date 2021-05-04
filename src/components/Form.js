@@ -65,7 +65,7 @@ export default class Forms extends React.Component {
     this.state = { translatedText: "" };
     this.state = { clicked: false };
     this.state = { disabled: true };
-    this.state = { StyledInfo : false}
+    this.state = { StyledInfo: false };
 
     this.update = this.update.bind(this);
     this.inputTextUpdate = this.inputTextUpdate.bind(this);
@@ -123,12 +123,11 @@ export default class Forms extends React.Component {
 
   handleChange(e) {
     this.setState({ value: e.target.value, textOrg: "", translatedText: "" });
-    let bool = e.target.value == "CSS" ? false : true;
-    let v = e.target.value == "CSS" ? 'React' : null;
-    this.setState({ disabled: bool, valueTr: v});
-    let dis = e.target.value == "CSS" ? true:false;
+    let bool = e.target.value == "🤡CSS" ? false : true;
+    let v = e.target.value == "🤡CSS" ? "⚛️React" : null;
+    this.setState({ disabled: bool, valueTr: v });
+    let dis = e.target.value == "🤡CSS" ? true : false;
     this.setState({ StyledInfo: dis });
-
   }
   handleChange2(e) {
     this.setState({ valueTr: e.target.value, translatedText: "" });
@@ -166,7 +165,14 @@ export default class Forms extends React.Component {
   }
 
   render() {
-    const { value, valueTr, textOrg, translatedText, disabled, StyledInfo } = this.state;
+    const {
+      value,
+      valueTr,
+      textOrg,
+      translatedText,
+      disabled,
+      StyledInfo,
+    } = this.state;
     const color_ = value && valueTr ? "green" : "red";
 
     console.log("state", this.state);
@@ -208,11 +214,11 @@ export default class Forms extends React.Component {
                 aria-required="true"
                 required="required"
                 onChange={
-                  value != "CSS"
+                  value != "🤡CSS"
                     ? this.handleTextTranslateChange
                     : this.inputTextUpdate
                 }
-                value={value != "CSS" ? textOrg : inputText}
+                value={value != "🤡CSS" ? textOrg : inputText}
                 placeholder={
                   "Here, Type Your " + value + " Text To Translate ..."
                 }
@@ -260,12 +266,16 @@ export default class Forms extends React.Component {
                 <option value="French">French</option>
                 <option value="Arabic">Arabic</option>
                 <option value="Espanol">Espanol</option>
-                <option value="CSS">CSS</option>
+                <option value="🤡CSS">🤡CSS</option>
               </select>
             </div>
             <strong>{"👈__👀__👉"}</strong>
             <div className="select is-primary is-small">
-              <select onChange={this.handleChange2} value = {valueTr} className="select">
+              <select
+                onChange={this.handleChange2}
+                value={valueTr}
+                className="select"
+              >
                 <option value="default">Translate into...</option>
                 <option value="English" disabled={false}>
                   English
@@ -279,8 +289,8 @@ export default class Forms extends React.Component {
                 <option value="Espanol" disabled={false}>
                   Español
                 </option>
-                <option value="React" disabled={disabled}>
-                  React
+                <option value="⚛️React" disabled={disabled}>
+                  ⚛️React
                 </option>
               </select>
             </div>
@@ -299,7 +309,7 @@ export default class Forms extends React.Component {
               margin: "auto",
             }}
           >
-            {value != "CSS" && valueTr != "React" ? (
+            {value != "🤡CSS" && valueTr != "⚛️React" ? (
               <button
                 className="button is-primary is-outlined"
                 onClick={this.handleClick}
@@ -307,12 +317,13 @@ export default class Forms extends React.Component {
                 Translate
               </button>
             ) : (
-              <div >
-                <br/>
-              <h3 className="mb-2" style={{ color: 'red' }}>
-              ☯️ Convert ,in Real Time, plain CSS into the <br></br> React in-line style 💅 specific  <br></br>JSON representation...
-        </h3>
-                
+              <div>
+                <br />
+                <h3 className="mb-2" style={{ color: "red" }}>
+                  Convert 🔄,in Real Time, plain 🤡CSS into the <br></br>{" "}
+                  ⚛️React in-line style 💅 specific <br></br>JSON
+                  representation...
+                </h3>
               </div>
             )}
           </div>
@@ -341,13 +352,13 @@ export default class Forms extends React.Component {
                 required="required"
                 // eslint-disable-next-line eqeqeq
                 value={
-                  value != "CSS" && valueTr != "React"
+                  value != "🤡CSS" && valueTr != "⚛️React"
                     ? translatedText
                     : outputText
                 }
                 placeholder={"Here, You get Your Text in " + valueTr}
               ></textarea>{" "}
-              {value == "CSS" && valueTr == "React" ? (
+              {value == "🤡CSS" && valueTr == "⚛️React" ? (
                 <div>
                   <label className="checkbox">
                     <input
@@ -362,7 +373,7 @@ export default class Forms extends React.Component {
                   </label>{" "}
                   <button
                     onClick={() => {
-                      value != "CSS" && valueTr != "React"
+                      value != "🤡CSS" && valueTr != "⚛️React"
                         ? navigator.clipboard.writeText(
                             this.state.translatedText
                           )
@@ -376,7 +387,7 @@ export default class Forms extends React.Component {
               ) : (
                 <button
                   onClick={() => {
-                    value != "CSS" && valueTr != "React"
+                    value != "🤡CSS" && valueTr != "⚛️React"
                       ? navigator.clipboard.writeText(this.state.translatedText)
                       : navigator.clipboard.writeText(this.state.outputText);
                   }}
@@ -407,67 +418,68 @@ export default class Forms extends React.Component {
               <strong> Translated Text.</strong>
             </div>
           )}
-          {!StyledInfo ? <div
-            style={{
-              position: "absolute",
-              top: "80%",
-              left: "38%",
-              right: "38%",
-              textAlign: "center",
-              fontSize: "14px",
-            }}
-           // eslint-disable-next-line react/jsx-no-comment-textnodes
-           >
-            
-            <article className="message is-info">
-              <div className="message-body">
-                {''}
-                <ul>
-                  <li>
-                    <strong>1. </strong>Select the Target and source Language,
-                  </li>
-                  <li>
-                    <strong>2. </strong>Paste the Original Text,
-                  </li>
-                  <li>
-                    <strong>3. </strong>Click to Translate Button,
-                  </li>
-                  <li>
-                    <strong>4. </strong>Copy the translated Text,
-                  </li>
-                </ul>
-              </div>
-            </article>
-          </div>: <div
-            style={{
-              position: "absolute",
-              top: "80%",
-              left: "38%",
-              right: "38%",
-              textAlign: "center",
-              fontSize: "14px",
-            }}
-           // eslint-disable-next-line react/jsx-no-comment-textnodes
-           >
-            
-            <article className="message is-info">
-              <div className="message-body">
-                {''}
-                <ul>
-
-                  <li>
-                    <strong>1. </strong>Paste or write the CSS code,
-                  </li>
-                  <li>
-                    <strong>2. </strong>Conversion will be done automatically,
-                  </li>
-                  <li>
-                    <strong>3. </strong>Format and Copy JSON representation,
-                  </li>
-                </ul>
-              </div>
-            </article>
-          </div>}
+          {!StyledInfo ? (
+            <div
+              style={{
+                position: "absolute",
+                top: "80%",
+                left: "38%",
+                right: "38%",
+                textAlign: "center",
+                fontSize: "14px",
+              }}
+              // eslint-disable-next-line react/jsx-no-comment-textnodes
+            >
+              <article className="message is-info">
+                <div className="message-body">
+                  {""}
+                  <ul>
+                    <li>
+                      <strong>1. </strong>Select the Target and source Language,
+                    </li>
+                    <li>
+                      <strong>2. </strong>Paste the Original Text,
+                    </li>
+                    <li>
+                      <strong>3. </strong>Click to Translate Button,
+                    </li>
+                    <li>
+                      <strong>4. </strong>Copy the translated Text,
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          ) : (
+            <div
+              style={{
+                position: "absolute",
+                top: "80%",
+                left: "38%",
+                right: "38%",
+                textAlign: "center",
+                fontSize: "14px",
+              }}
+              // eslint-disable-next-line react/jsx-no-comment-textnodes
+            >
+              <article className="message is-info">
+                <div className="message-body">
+                  {""}
+                  <ul>
+                    <li>
+                      <strong>1. </strong>Paste or write the 🤡CSS code,
+                    </li>
+                    <li>
+                      <strong>2. </strong>Conversion will be done automatically,
+                    </li>
+                    <li>
+                      <strong>3. </strong>Format and Copy JSON representation,
+                    </li>
+                  </ul>
+                </div>
+              </article>
+            </div>
+          )}
         </div>
       </div>
     );
