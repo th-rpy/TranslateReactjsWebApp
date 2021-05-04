@@ -1,8 +1,4 @@
-import {
-  Text,
-  Box,
-
-} from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 /*import { SearchIcon, Search2Icon } from "@chakra-ui/icons";*/
 import Typewriter from "./TypeWriter";
 

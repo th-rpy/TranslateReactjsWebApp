@@ -11,7 +11,7 @@ function App() {
       className="App"
       style={{
         backgroundColor: "#ffffff",
-        height: "70%",
+        height: "10%",
       }}
     >
       <Header />
