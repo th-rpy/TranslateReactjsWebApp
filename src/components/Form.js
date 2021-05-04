@@ -65,6 +65,8 @@ export default class Forms extends React.Component {
     this.state = { translatedText: "" };
     this.state = { clicked: false };
     this.state = { disabled: true };
+    this.state = { StyledInfo : false}
+
     this.update = this.update.bind(this);
     this.inputTextUpdate = this.inputTextUpdate.bind(this);
 
@@ -122,7 +124,11 @@ export default class Forms extends React.Component {
   handleChange(e) {
     this.setState({ value: e.target.value, textOrg: "", translatedText: "" });
     let bool = e.target.value == "CSS" ? false : true;
-    this.setState({ disabled: bool });
+    let v = e.target.value == "CSS" ? 'React' : null;
+    this.setState({ disabled: bool, valueTr: v});
+    let dis = e.target.value == "CSS" ? true:false;
+    this.setState({ StyledInfo: dis });
+
   }
   handleChange2(e) {
     this.setState({ valueTr: e.target.value, translatedText: "" });
@@ -160,7 +166,7 @@ export default class Forms extends React.Component {
   }
 
   render() {
-    const { value, valueTr, textOrg, translatedText, disabled } = this.state;
+    const { value, valueTr, textOrg, translatedText, disabled, StyledInfo } = this.state;
     const color_ = value && valueTr ? "green" : "red";
 
     console.log("state", this.state);
@@ -259,7 +265,7 @@ export default class Forms extends React.Component {
             </div>
             <strong>{"👈__👀__👉"}</strong>
             <div className="select is-primary is-small">
-              <select onChange={this.handleChange2} className="select">
+              <select onChange={this.handleChange2} value = {valueTr} className="select">
                 <option value="default">Translate into...</option>
                 <option value="English" disabled={false}>
                   English
@@ -301,9 +307,13 @@ export default class Forms extends React.Component {
                 Translate
               </button>
             ) : (
-              <strong style={{ fontSize: "18px", color: "red" }}>
-                Convert in Real Time
-              </strong>
+              <div >
+                <br/>
+              <h3 className="mb-2" style={{ color: 'red' }}>
+              ☯️ Convert ,in Real Time, plain CSS into the <br></br> React in-line style 💅 specific  <br></br>JSON representation...
+        </h3>
+                
+              </div>
             )}
           </div>
 
@@ -397,7 +407,7 @@ export default class Forms extends React.Component {
               <strong> Translated Text.</strong>
             </div>
           )}
-          <div
+          {!StyledInfo ? <div
             style={{
               position: "absolute",
               top: "80%",
@@ -406,12 +416,12 @@ export default class Forms extends React.Component {
               textAlign: "center",
               fontSize: "14px",
             }}
-          >
+           // eslint-disable-next-line react/jsx-no-comment-textnodes
+           >
+            
             <article className="message is-info">
               <div className="message-body">
-                {
-                  "This simple little tool is intended to help translate plain CSS into the React in-line style specific JSON representation. Making it easy to copy and paste into an inline React component."
-                }
+                {''}
                 <ul>
                   <li>
                     <strong>1. </strong>Select the Target and source Language,
@@ -428,7 +438,36 @@ export default class Forms extends React.Component {
                 </ul>
               </div>
             </article>
-          </div>
+          </div>: <div
+            style={{
+              position: "absolute",
+              top: "80%",
+              left: "38%",
+              right: "38%",
+              textAlign: "center",
+              fontSize: "14px",
+            }}
+           // eslint-disable-next-line react/jsx-no-comment-textnodes
+           >
+            
+            <article className="message is-info">
+              <div className="message-body">
+                {''}
+                <ul>
+
+                  <li>
+                    <strong>1. </strong>Paste or write the CSS code,
+                  </li>
+                  <li>
+                    <strong>2. </strong>Conversion will be done automatically,
+                  </li>
+                  <li>
+                    <strong>3. </strong>Format and Copy JSON representation,
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>}
         </div>
       </div>
     );
