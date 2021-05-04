@@ -28,7 +28,7 @@ const Type = () => {
                 typespeed={50}
                 deleteSpeed={50}
                 delaySpeed={1000}
-                words={["English", "French", "Arabic", "Other!"]}
+                words={["English", "French", "Arabic", "React!"]}
               />
             </span>
           </Text>

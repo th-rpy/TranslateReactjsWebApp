@@ -65,7 +65,6 @@ export default class Forms extends React.Component {
     this.state = { translatedText: "" };
     this.state = { clicked: false };
     this.state = { disabled: true };
-    this.state = { disabledInput: false };
     this.update = this.update.bind(this);
     this.inputTextUpdate = this.inputTextUpdate.bind(this);
 
@@ -127,8 +126,6 @@ export default class Forms extends React.Component {
   }
   handleChange2(e) {
     this.setState({ valueTr: e.target.value, translatedText: "" });
-    let bool = e.target.value == "React" ? false : true;
-    this.setState({ disabledInput: bool });
   }
 
   handleTextTranslateChange(e) {
@@ -142,35 +139,28 @@ export default class Forms extends React.Component {
       : null;
     this.state.value === this.state.valueTr
       ? this.setState({ translatedText: this.state.textOrg, clicked: true })
-      : this.setState({ translatedText: "Bonjour mes amis !", clicked: true });
-    fetch(
-      "https://website-translation1.p.rapidapi.com/translateLanguage/translate?type=plain&text=Marketing%20is%20the%20study%20and%20management%20of%20exchange%20relationships.%20It%20is%20the%20business%20process%20of%20identifying%2C%20anticipating%2C%20and%20satisfying%20customers'%20needs%20and%20wants.%20Because%20marketing%20is%20used%20to%20attract%20customers%2C%20it%20is%20one%20of%20the%20primary%20components%20of%20business%20management%20and%20commerce.&target=fr",
-      {
-        method: "GET",
-        headers: {
-          "x-rapidapi-key":
-            "80931fe5ddmsh53d7fcecf915bb4p18ea7bjsna3109b19b574",
-          "x-rapidapi-host": "website-translation1.p.rapidapi.com",
-        },
-      }
-    )
-      .then((response) => {
-        console.log(response.json());
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      : this.setState({ clicked: true });
+    let languageObj = {
+      English: "en",
+      French: "fr",
+      Arabic: "ar",
+      Espanol: "es",
+    };
+    const response = fetch("https://libretranslate.com/translate", {
+      method: "POST",
+      body: JSON.stringify({
+        q: this.state.textOrg,
+        source: languageObj[this.state.value],
+        target: languageObj[this.state.valueTr],
+      }),
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((res) => this.setState({ translatedText: res.translatedText }));
   }
 
   render() {
-    const {
-      value,
-      valueTr,
-      textOrg,
-      translatedText,
-      disabled,
-      disabledInput,
-    } = this.state;
+    const { value, valueTr, textOrg, translatedText, disabled } = this.state;
     const color_ = value && valueTr ? "green" : "red";
 
     console.log("state", this.state);
@@ -221,19 +211,6 @@ export default class Forms extends React.Component {
                   "Here, Type Your " + value + " Text To Translate ..."
                 }
               ></textarea>{" "}
-              {value == "CSS" && valueTr == "React" ? (
-                <div>
-                  <input
-                    style={{ marginLeft: "15px" }}
-                    aria-label="Format"
-                    ref="useNewline"
-                    alt="Formats the react JSON below."
-                    type="checkbox"
-                    onChange={this.update}
-                  />
-                  <span style={{ marginRight: "10px" }}>Format</span>
-                </div>
-              ) : null}
             </div>
           ) : (
             <div
@@ -276,12 +253,13 @@ export default class Forms extends React.Component {
                 <option value="English">English</option>
                 <option value="French">French</option>
                 <option value="Arabic">Arabic</option>
+                <option value="Espanol">Espanol</option>
                 <option value="CSS">CSS</option>
               </select>
             </div>
             <strong>{"👈__👀__👉"}</strong>
-            <div class="select is-primary is-small">
-              <select onChange={this.handleChange2} class="select">
+            <div className="select is-primary is-small">
+              <select onChange={this.handleChange2} className="select">
                 <option value="default">Translate into...</option>
                 <option value="English" disabled={false}>
                   English
@@ -291,6 +269,9 @@ export default class Forms extends React.Component {
                 </option>
                 <option value="Arabic" disabled={false}>
                   Arabic
+                </option>
+                <option value="Espanol" disabled={false}>
+                  Español
                 </option>
                 <option value="React" disabled={disabled}>
                   React
@@ -314,7 +295,7 @@ export default class Forms extends React.Component {
           >
             {value != "CSS" && valueTr != "React" ? (
               <button
-                class="button is-primary is-outlined"
+                className="button is-primary is-outlined"
                 onClick={this.handleClick}
               >
                 Translate
@@ -356,17 +337,45 @@ export default class Forms extends React.Component {
                 }
                 placeholder={"Here, You get Your Text in " + valueTr}
               ></textarea>{" "}
-              <br />{" "}
-              <button
-                onClick={() => {
-                  value != "CSS" && valueTr != "React"
-                    ? navigator.clipboard.writeText(this.state.translatedText)
-                    : navigator.clipboard.writeText(this.state.outputText);
-                }}
-                class="button is-light"
-              >
-                Copy
-              </button>
+              {value == "CSS" && valueTr == "React" ? (
+                <div>
+                  <label className="checkbox">
+                    <input
+                      style={{ marginLeft: "12px" }}
+                      aria-label="Format"
+                      ref="useNewline"
+                      alt="Formats the react JSON below."
+                      type="checkbox"
+                      onChange={this.update}
+                    />
+                    <span style={{ marginRight: "10px" }}>Format</span>
+                  </label>{" "}
+                  <button
+                    onClick={() => {
+                      value != "CSS" && valueTr != "React"
+                        ? navigator.clipboard.writeText(
+                            this.state.translatedText
+                          )
+                        : navigator.clipboard.writeText(this.state.outputText);
+                    }}
+                    className="button is-light"
+                  >
+                    Copy
+                  </button>
+                </div>
+              ) : (
+                <button
+                  onClick={() => {
+                    value != "CSS" && valueTr != "React"
+                      ? navigator.clipboard.writeText(this.state.translatedText)
+                      : navigator.clipboard.writeText(this.state.outputText);
+                  }}
+                  className="button is-light"
+                >
+                  Copy
+                </button>
+              )}
+              <br />
             </div>
           ) : (
             <div
@@ -400,7 +409,9 @@ export default class Forms extends React.Component {
           >
             <article className="message is-info">
               <div className="message-body">
-                {" "}
+                {
+                  "This simple little tool is intended to help translate plain CSS into the React in-line style specific JSON representation. Making it easy to copy and paste into an inline React component."
+                }
                 <ul>
                   <li>
                     <strong>1. </strong>Select the Target and source Language,
