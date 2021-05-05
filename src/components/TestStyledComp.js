@@ -18,12 +18,16 @@ class TestComp extends Component {
           width: "20%",
           marginLeft: "78%",
           marginRight: "18%",
-          float: "left",color: "blue"
+          float: "left",
+          color: "#4a4e69",
         }}
       >
         <div className="card">
           <header className="card-header">
-            <p className="card-header-title"> Test Component</p>
+            <p className="card-header-title" style={{ color: "#ff0a54" }}>
+              {" "}
+              Test Component
+            </p>
           </header>
           <div className="card-content">
             <strong style={this.props.style}>

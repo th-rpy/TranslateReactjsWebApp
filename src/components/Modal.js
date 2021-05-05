@@ -9,7 +9,6 @@ class Change extends React.Component {
     this.state = {
       showHide: false,
       obj: [],
-      obj2: [''],
       inputfrom: '',
       inputby : '',
     };
@@ -35,7 +34,6 @@ class Change extends React.Component {
     console.log('Your input from is: ' + this.state.inputfrom)
     this.setState(prevState => ({
         obj: [...prevState.obj, this.state.inputfrom+':' + this.state.inputby],
-        obj2: [...prevState.obj2, this.state.inputby],
         inputby: '',
         inputfrom: ''
     }))
@@ -65,6 +63,7 @@ class Change extends React.Component {
           Glossary
         </button>
 
+      
         <Modal
           style={{
             position: "absolute",
@@ -85,7 +84,8 @@ class Change extends React.Component {
               <div className="modal-background"></div>
               <div className="modal-card">
                 <header className="modal-card-head">
-                  <p className="modal-card-title">Glossary</p>
+                  <h1 className="modal-card-title">Glossary</h1> <br/>
+                  <h3 className="modal-card-title">Add your Dictionary</h3>
                   <button onClick={() => this.handleModalShowHide()} className="delete" aria-label="close"></button>
                 </header>
                 <section className="modal-card-body">
@@ -96,7 +96,7 @@ class Change extends React.Component {
                     onChange={this.updateInput}
                     value = {inputfrom}
                     placeholder="ex. : Maler"
-                  />{"  🔀 ⏩ 🔀    "} <strong> By :</strong> <input
+                  />{"  🔀  ⏩  🔀    "} <strong> By :</strong> <input
                   className=""
                   type="text"
                   value={inputby}
@@ -105,16 +105,17 @@ class Change extends React.Component {
                 />
                 <br/><br/>
                 {
-                     obj.map((ar, index) => (<div className= "box is-small"><p>{index + '.' + ar.split(':')[0] + '  ⏩  ⏩ ' + ar.split(':')[1]}</p> </div>))
+                     obj.map((ar, index) => (<div className= "box is-small"><p style = {{color: "#000814", fontSize:"15px"}}>{index + '.  ' + ar.split(':')[0] + '  ' + ' ⏩  ⏩ ' + ar.split(':')[1]}</p> </div>))
                     }
                 </section>
                 <footer className="modal-card-foot">
                   <button
-                    className="button is-success is-outlined"
+                    className="button is-success "
                     onClick={this.handleSubmit}
                   >
                     Save
                   </button>
+                
                   <button
                     onClick={() => this.handleModalShowHide()}
                     className="button is-danger is-outlined"
