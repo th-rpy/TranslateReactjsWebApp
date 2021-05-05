@@ -18,6 +18,7 @@ import { Button } from "shards-react";*/
 import "bulma/css/bulma.css";
 import Parser from "./ParserComp";
 import ReactDOM from "react-dom";
+import TestComp from "./TestStyledComp";
 
 import { transform } from "./Transform.js";
 
@@ -66,6 +67,7 @@ export default class Forms extends React.Component {
     this.state = { clicked: false };
     this.state = { disabled: true };
     this.state = { StyledInfo: false };
+    this.state = { styled: { color: "red" } };
 
     this.update = this.update.bind(this);
     this.inputTextUpdate = this.inputTextUpdate.bind(this);
@@ -81,6 +83,9 @@ export default class Forms extends React.Component {
   }
 
   inputTextUpdate(e) {
+    if (e.target.value == "") {
+      this.setState({ outputText: "" });
+    }
     this.setState(
       {
         inputText: e.target.value,
@@ -122,7 +127,14 @@ export default class Forms extends React.Component {
   }
 
   handleChange(e) {
-    this.setState({ value: e.target.value, textOrg: "", translatedText: "" });
+    this.setState({
+      value: e.target.value,
+      textOrg: "",
+      translatedText: "",
+      outputText: "",
+      inputText: "",
+      error: "",
+    });
     let bool = e.target.value == "🤡CSS" ? false : true;
     let v = e.target.value == "🤡CSS" ? "⚛️React" : null;
     this.setState({ disabled: bool, valueTr: v });
@@ -172,6 +184,7 @@ export default class Forms extends React.Component {
       translatedText,
       disabled,
       StyledInfo,
+      styled,
     } = this.state;
     const color_ = value && valueTr ? "green" : "red";
 
@@ -209,7 +222,7 @@ export default class Forms extends React.Component {
                 }}
                 id="edd-reviews-review"
                 name="edd-reviews-review"
-                rows="12"
+                rows="11"
                 cols="60"
                 aria-required="true"
                 required="required"
@@ -229,7 +242,7 @@ export default class Forms extends React.Component {
               style={{
                 height: "30rem",
                 width: "20%",
-                marginLeft: "5%",
+                marginLeft: "10%",
                 marginRight: "0%",
                 float: "left",
               }}
@@ -347,7 +360,7 @@ export default class Forms extends React.Component {
                 id="edd-reviews-review"
                 name="edd-reviews-review"
                 cols="60"
-                rows="12"
+                rows="11"
                 aria-required="true"
                 required="required"
                 // eslint-disable-next-line eqeqeq
@@ -480,6 +493,12 @@ export default class Forms extends React.Component {
               </article>
             </div>
           )}
+          {StyledInfo ? (
+            <TestComp
+              /*style={outputText=='' ? {color:'blue'}: JSON.parse(JSON.stringify(outputText))}*/
+              style={{color:'green'}}
+            ></TestComp>
+          ) : null}
         </div>
       </div>
     );

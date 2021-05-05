@@ -42,7 +42,7 @@ const Type = () => {
           textAlign="center"
           isTruncated
         >
-          Welcome! To get started, paste your text into the search box
+          Welcome! To get started, paste your text/code into the box ...
         </Text>
       </Box>
     </div>
