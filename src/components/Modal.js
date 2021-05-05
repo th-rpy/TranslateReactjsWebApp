@@ -113,7 +113,7 @@ class Change extends React.Component {
                     className="button is-success is-outlined"
                     onClick={this.handleSubmit}
                   >
-                    Save changes
+                    Save
                   </button>
                   <button
                     onClick={() => this.handleModalShowHide()}
