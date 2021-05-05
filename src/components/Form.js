@@ -496,7 +496,7 @@ export default class Forms extends React.Component {
           {StyledInfo ? (
             <TestComp
               /*style={outputText=='' ? {color:'blue'}: JSON.parse(JSON.stringify(outputText))}*/
-              style={{color:'green'}}
+              style={{ color: "green" }}
             ></TestComp>
           ) : null}
         </div>
