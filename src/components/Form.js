@@ -19,6 +19,7 @@ import "bulma/css/bulma.css";
 import Parser from "./ParserComp";
 import ReactDOM from "react-dom";
 import TestComp from "./TestStyledComp";
+import Change from "./Modal";
 
 import { transform } from "./Transform.js";
 
@@ -495,10 +496,10 @@ export default class Forms extends React.Component {
           )}
           {StyledInfo ? (
             <TestComp
-              /*style={outputText=='' ? {color:'blue'}: JSON.parse(JSON.stringify(outputText))}*/
-              style={{ color: "green" }}
+            /*style={outputText=='' ? {color:'blue'}: JSON.parse(JSON.stringify(outputText))}*/
+            style={{ color: "green" }}
             ></TestComp>
-          ) : null}
+          ) : <Change></Change>}
         </div>
       </div>
     );

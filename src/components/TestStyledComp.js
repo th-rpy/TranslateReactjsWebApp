@@ -18,7 +18,7 @@ class TestComp extends Component {
           width: "20%",
           marginLeft: "78%",
           marginRight: "18%",
-          float: "left",
+          float: "left",color: "blue"
         }}
       >
         <div className="card">

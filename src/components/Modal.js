@@ -1,49 +1,131 @@
 import React from "react";
-import Button from "@bit/react-bootstrap.react-bootstrap.button";
-import Modal from "@bit/react-bootstrap.react-bootstrap.modal";
-import ReactBootstrapStyle from "@bit/react-bootstrap.react-bootstrap.internal.style-links";
+import { Button, Modal } from "react-bootstrap";
+import "bulma/css/bulma.css";
+
 
 class Change extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-
-    this.handleShow = this.handleShow.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-
+  constructor() {
+    super();
     this.state = {
-      show: false,
+      showHide: false,
+      obj: [],
+      obj2: [''],
+      inputfrom: '',
+      inputby : '',
     };
+    this.updateInput = this.updateInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateInputby = this.updateInputby.bind(this);
+
   }
 
-  handleClose() {
-    this.setState({ show: false });
+  handleModalShowHide() {
+    this.setState({ showHide: !this.state.showHide });
   }
 
-  handleShow() {
-    this.setState({ show: true });
-  }
+  updateInput(event){
+    this.setState({inputfrom : event.target.value})
+    }
+  updateInputby(event){
+        this.setState({inputby : event.target.value})
+        }
+    
+    
+    handleSubmit(){
+    console.log('Your input from is: ' + this.state.inputfrom)
+    this.setState(prevState => ({
+        obj: [...prevState.obj, this.state.inputfrom+':' + this.state.inputby],
+        obj2: [...prevState.obj2, this.state.inputby],
+        inputby: '',
+        inputfrom: ''
+    }))
+    //Send state to the server code
+    }
 
   render() {
+      const { obj, inputfrom , inputby} = this.state;
     return (
-      <div>
-        <ReactBootstrapStyle />
-        <Button variant="primary" onClick={this.handleShow}>
-          Launch demo modal
-        </Button>
+      <div
+        className="modal is-active"
+        style={{
+          position: "absolute",
+          top: "0%",
+          fontSize: "8px",
+          height: "33rem",
+          width: "20%",
+          marginLeft: "82%",
+          marginRight: "18%",
+          float: "left",
+        }}
+      >
+        <button
+          className="button is-normal"
+          onClick={() => this.handleModalShowHide()}
+        >
+          Glossary
+        </button>
 
-        <Modal show={this.state.show} onHide={this.handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+        <Modal
+          style={{
+            position: "absolute",
+            top: "3%",
+            fontSize: "10px",
+            height: "44rem",
+            width: "20%",
+            marginLeft: "78%",
+            marginRight: "18%",
+            marginTop: "1%",
+            float: "top",
+          }}
+          show={this.state.showHide}
+        >
+          <Modal.Header>
+
+            <div className="modal is-active is-small">
+              <div className="modal-background"></div>
+              <div className="modal-card">
+                <header className="modal-card-head">
+                  <p className="modal-card-title">Glossary</p>
+                  <button onClick={() => this.handleModalShowHide()} className="delete" aria-label="close"></button>
+                </header>
+                <section className="modal-card-body">
+                    
+                <strong>Replace: </strong> <input
+                    className=""
+                    type="text"
+                    onChange={this.updateInput}
+                    value = {inputfrom}
+                    placeholder="ex. : Maler"
+                  />{"  🔀 ⏩ 🔀    "} <strong> By :</strong> <input
+                  className=""
+                  type="text"
+                  value={inputby}
+                  onChange={this.updateInputby}
+                  placeholder="ex. : Artist"
+                />
+                <br/><br/>
+                {
+                     obj.map((ar, index) => (<div className= "box is-small"><p>{index + '.' + ar.split(':')[0] + '  ⏩  ⏩ ' + ar.split(':')[1]}</p> </div>))
+                    }
+                </section>
+                <footer className="modal-card-foot">
+                  <button
+                    className="button is-success is-outlined"
+                    onClick={this.handleSubmit}
+                  >
+                    Save changes
+                  </button>
+                  <button
+                    onClick={() => this.handleModalShowHide()}
+                    className="button is-danger is-outlined"
+                  >
+                    Close
+                  </button>
+                </footer>
+              </div>
+            </div>
           </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={this.handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
+          
         </Modal>
       </div>
     );
