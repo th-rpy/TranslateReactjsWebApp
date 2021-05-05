@@ -187,7 +187,7 @@ export default class Forms extends React.Component {
       StyledInfo,
       styled,
     } = this.state;
-    const color_ = value && valueTr ? "green" : "red";
+    const color_ = value && valueTr ? "#72efdd" : "#ffadad";
 
     console.log("state", this.state);
     var inputText = this.state.inputText;
@@ -195,14 +195,14 @@ export default class Forms extends React.Component {
 
     return (
       <div>
-        <h3 className="mb-2" style={{ color: color_ }}>
+        <strong className="mb-2" style={{ color: color_ }}>
           {value && valueTr
             ? "From : " +
               (value && `🗣 ${value}`) +
               " To : " +
               (valueTr && `🗣 ${valueTr}`)
             : "🤔 Waiting for you to say something..."}
-        </h3>
+        </strong>
         <br /> <br />
         <div style={{ height: "50em", width: "100%", margin: "auto" }}>
           {value ? (
@@ -333,11 +333,11 @@ export default class Forms extends React.Component {
             ) : (
               <div>
                 <br />
-                <h3 className="mb-2" style={{ color: "red" }}>
+                <string className="mb-2" style={{ color: "#ff6b6b" }}>
                   Convert 🔄,in Real Time, plain 🤡CSS into the <br></br>{" "}
                   ⚛️React in-line style 💅 specific <br></br>JSON
                   representation...
-                </h3>
+                </string>
               </div>
             )}
           </div>
@@ -496,10 +496,12 @@ export default class Forms extends React.Component {
           )}
           {StyledInfo ? (
             <TestComp
-            /*style={outputText=='' ? {color:'blue'}: JSON.parse(JSON.stringify(outputText))}*/
-            style={{ color: "blue" }}
+              /*style={outputText=='' ? {color:'blue'}: JSON.parse(JSON.stringify(outputText))}*/
+              style={{ color: "#4a4e69" }}
             ></TestComp>
-          ) : <Change></Change>}
+          ) : (
+            <Change></Change>
+          )}
         </div>
       </div>
     );

@@ -8,20 +8,20 @@ const Type = () => {
 
   return (
     <div>
-      <Box pt="100" px="100">
+      <Box pt="80" px="100">
         <div>
           <Text
             className="i"
             size="lg"
             fontSize="40px"
             p="4"
-            color="gray.100"
+            color="#1282a2"
             textAlign="center"
             as="i"
             isTruncated
           >
             Paste your Text and Get your Translated Text in{" "}
-            <span style={{ color: "red" }}>
+            <span style={{ color: "#f72585" }}>
               <Typewriter
                 loop
                 cursor
@@ -38,7 +38,7 @@ const Type = () => {
           size="md"
           fontSize="20px"
           p="10"
-          color="gray.900"
+          color="#0A1128"
           textAlign="center"
           isTruncated
         >
