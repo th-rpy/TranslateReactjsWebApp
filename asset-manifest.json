@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/TranslateReactjsWebApp/static/css/main.2516e54e.chunk.css",
+    "main.js": "/TranslateReactjsWebApp/static/js/main.20cf38e7.chunk.js",
+    "main.js.map": "/TranslateReactjsWebApp/static/js/main.20cf38e7.chunk.js.map",
+    "runtime-main.js": "/TranslateReactjsWebApp/static/js/runtime-main.53918ae9.js",
+    "runtime-main.js.map": "/TranslateReactjsWebApp/static/js/runtime-main.53918ae9.js.map",
+    "static/css/2.0d309abc.chunk.css": "/TranslateReactjsWebApp/static/css/2.0d309abc.chunk.css",
+    "static/js/2.22a8b59a.chunk.js": "/TranslateReactjsWebApp/static/js/2.22a8b59a.chunk.js",
+    "static/js/2.22a8b59a.chunk.js.map": "/TranslateReactjsWebApp/static/js/2.22a8b59a.chunk.js.map",
+    "static/js/3.5d4826ee.chunk.js": "/TranslateReactjsWebApp/static/js/3.5d4826ee.chunk.js",
+    "static/js/3.5d4826ee.chunk.js.map": "/TranslateReactjsWebApp/static/js/3.5d4826ee.chunk.js.map",
+    "index.html": "/TranslateReactjsWebApp/index.html",
+    "static/css/2.0d309abc.chunk.css.map": "/TranslateReactjsWebApp/static/css/2.0d309abc.chunk.css.map",
+    "static/css/main.2516e54e.chunk.css.map": "/TranslateReactjsWebApp/static/css/main.2516e54e.chunk.css.map",
+    "static/js/2.22a8b59a.chunk.js.LICENSE.txt": "/TranslateReactjsWebApp/static/js/2.22a8b59a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.53918ae9.js",
+    "static/css/2.0d309abc.chunk.css",
+    "static/js/2.22a8b59a.chunk.js",
+    "static/css/main.2516e54e.chunk.css",
+    "static/js/main.20cf38e7.chunk.js"
+  ]
+}
