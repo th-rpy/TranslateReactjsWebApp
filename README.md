@@ -1,8 +1,7 @@
 ## Translate Reactjs Web App
 
-TranslateReactjsWebApp : Work with Api ( Google Translate API) using ReactJs , matriel-ui and fetch api. 
+Translate App : Work with Api ( Public API) using ReactJs , matriel-ui and fetch. 
 
-## Step 1: 
-Get the Token of Google Translate API
+## Demo : 
 
 ![Alt Text](https://github.com/th-rpy/TranslateReactjsWebApp/blob/main/Demo/DemoTranslateApp.gif)
