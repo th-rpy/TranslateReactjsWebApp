@@ -1,7 +1,7 @@
 /*import logo from "./logo.svg";*/
 import "./App.css";
 import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Navbar from "./components/NavBar";
 import Forms from "./components/Form";
 import Type from "./components/Type";
 
@@ -14,6 +14,7 @@ function App() {
         height: "10%",
       }}
     >
+      <Navbar></Navbar>
       <Type />
       <Forms></Forms>
       <Footer />
